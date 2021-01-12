@@ -1,25 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import { ThemeProvider } from "styled-components";
+import Home from "./components/Home";
+import { AppContainer } from "./styles/App";
+import light from "./styles/themes/light";
+import dark from "./styles/themes/dark";
+
+import Switch from "react-switch";
+import { shade } from "polished";
 
 function App() {
+  const [theme, setTheme] = useState(light);
+  const toggleTheme = () => {
+    setTheme(theme.title === "light" ? dark : light);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <AppContainer>
+        <div className="switch">
+          <Switch
+            onChange={toggleTheme}
+            checked={theme.title === "dark"}
+            checkedIcon={false}
+            uncheckedIcon={false}
+            height={10}
+            width={40}
+            handleDiameter={20}
+            offColor={shade(0.6, theme.colors.primary)}
+            onColor={theme.colors.secundary}
+          />
+        </div>
+        <Home toggleTheme={toggleTheme} />
+      </AppContainer>
+    </ThemeProvider>
   );
 }
 
