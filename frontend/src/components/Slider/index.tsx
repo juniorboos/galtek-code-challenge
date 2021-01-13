@@ -1,15 +1,11 @@
 import React, { useState } from "react";
 import { Container, Controls } from "../../styles/components/Slider";
+import { IWeather } from "../../types/weatherType";
 import Card from "../Card";
 import SliderControl from "./SliderControl";
 
-interface Item {
-  id: number;
-  name: string;
-}
-
 interface Props {
-  items: Item[];
+  items: IWeather[];
 }
 
 const Slider = ({ items }: Props) => {
@@ -36,9 +32,10 @@ const Slider = ({ items }: Props) => {
   return (
     <>
       <Container numItems={items.length} current={current}>
-        {items.map((item: Item, idx) => (
+        {items.map((item: IWeather, idx: number) => (
           <Card
             key={idx}
+            index={idx}
             slide={item}
             current={current}
             handleSlideClick={handleSlideClick}

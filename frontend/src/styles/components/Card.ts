@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 interface Props {
   isFar: boolean;
+  isOpen: boolean;
 }
 
 export const Container = styled.li<Props>`
@@ -22,7 +23,7 @@ export const Container = styled.li<Props>`
   position: relative;
   text-align: center;
   transition: opacity calc(300ms) cubic-bezier(0.25, 0.46, 0.45, 0.84),
-    transform calc(300ms) cubic-bezier(0.25, 0.46, 0.45, 0.84);
+    transform calc(300ms) cubic-bezier(0.25, 0.46, 0.45, 0.84), calc(300ms);
   z-index: 1;
   margin: 0 -2vmin;
   /* margin: 0 4vmin; */
@@ -101,7 +102,7 @@ export const Container = styled.li<Props>`
     opacity: 1;
     pointer-events: auto;
     user-select: auto;
-    /* background-color: green; */
+
     transform: scale(1.2);
     z-index: 3;
 
@@ -114,5 +115,20 @@ export const Container = styled.li<Props>`
           );
       }
     } */
+
+    ${(props) =>
+      props.isOpen &&
+      `
+        background-color: blue;
+        height: 60%;
+
+        @media (max-width: 425px) {
+          height: 70%;
+        }
+    `}
+  }
+  @media (max-width: 500px) {
+    width: 70vmin;
+    height: 70vmin;
   }
 `;

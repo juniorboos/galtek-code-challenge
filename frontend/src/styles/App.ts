@@ -19,5 +19,6 @@ export const AppContainer = styled.div`
     position: absolute;
     right: 20px;
     top: 20px;
+    z-index: 5;
   }
 `;

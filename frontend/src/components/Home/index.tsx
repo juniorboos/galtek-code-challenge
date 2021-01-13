@@ -1,32 +1,19 @@
 import React from "react";
 import { Container } from "../../styles/components/Home";
 import Slider from "../Slider";
+import { useQuery } from "react-apollo";
+import { GET_WEATHERS } from "../../services/graphql/queries/weatherQuery";
 
-interface Item {
-  id: number;
-  name: string;
-}
+const Home = () => {
+  const { loading, error, data } = useQuery(GET_WEATHERS);
 
-interface Props {
-  toggleTheme(): void;
-}
-
-const Home = ({ toggleTheme }: Props) => {
-  function create(id: number, name: string) {
-    return { id: id, name: name };
-  }
-
-  const items: Item[] = [
-    create(0, "Lisboa"),
-    create(1, "Leira"),
-    create(2, "Coimbra"),
-    create(3, "Porto"),
-    create(4, "Faro"),
-  ];
+  if (loading) return <h1>Loading...</h1>;
+  if (error) return <h1>Error: {error.message}</h1>;
+  console.log(data);
 
   return (
     <Container>
-      <Slider items={items} />
+      <Slider items={data.weathers} />
     </Container>
   );
 };

@@ -13,6 +13,8 @@ export const Container = styled.ul<Props>`
   transition: transform 600ms cubic-bezier(0.25, 1, 0.35, 1);
 
   transform: translateX(-${(props) => props.current * (100 / props.numItems)}%);
+  border: 1px solid green;
+  height: 100vh;
 `;
 
 export const Controls = styled.div`
@@ -20,7 +22,7 @@ export const Controls = styled.div`
   justify-content: center;
   align-items: center;
   position: absolute;
-  top: calc(100% + 4rem);
+  top: calc(100% - 4rem);
   margin: 0 auto;
   width: 100%;
 `;

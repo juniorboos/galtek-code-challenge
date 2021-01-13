@@ -1,37 +1,49 @@
 import React, { useEffect, useState } from "react";
 import { Container } from "../../styles/components/Card";
-
-interface Item {
-  id: number;
-  name: string;
-}
+import { IWeather } from "../../types/weatherType";
 
 interface Props {
-  slide: Item;
+  index: number;
+  slide: IWeather;
   current: number;
   handleSlideClick: (index: number) => void;
 }
 
-const Card = ({ slide, current, handleSlideClick }: Props) => {
+const Card = ({ index, slide, current, handleSlideClick }: Props) => {
   const [classname, setClassname] = useState<string>("");
   const [isFar, setIsFar] = useState<boolean>(false);
+  const [open, setOpen] = useState<boolean>(false);
 
   useEffect(() => {
-    if (current === slide.id) setClassname("current");
-    else if (current > slide.id) setClassname("previous");
-    else if (current < slide.id) setClassname("next");
+    if (current === index) setClassname("current");
+    else {
+      setOpen(false);
+      if (current > index) setClassname("previous");
+      else if (current < index) setClassname("next");
+    }
 
-    if (current - slide.id > 1 || current - slide.id < -1) setIsFar(true);
+    if (current - index > 1 || current - index < -1) setIsFar(true);
     else setIsFar(false);
-  }, [current, slide]);
+  }, [current, index]);
+
+  const handleOpen = () => {
+    setOpen(!open);
+    console.log(!open);
+  };
 
   return (
     <Container
       isFar={isFar}
+      isOpen={open}
       className={classname}
-      onClick={() => handleSlideClick(slide.id)}
+      onClick={() => handleSlideClick(index)}
     >
-      <div className="image_wrapper">{slide.name}</div>
+      <div className="image_wrapper">{slide.city}</div>
+      <h3>Status: {slide.currentWeather.status}</h3>
+      <h3>Temperature: {slide.currentWeather.temp}</h3>
+      <h3>Max: {slide.currentWeather.tempMin}</h3>
+      <h3>Min: {slide.currentWeather.tempMax}</h3>
+      <button onClick={() => handleOpen()}>Teste</button>
     </Container>
   );
 };
