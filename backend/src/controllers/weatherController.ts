@@ -15,6 +15,7 @@ function weatherReducer(data: IWeatherData) {
     currentWeather: {
       status: weather[0].main,
       description: weather[0].description,
+      icon: `http://openweathermap.org/img/wn/${weather[0].icon}@4x.png`,
       temp: main.temp,
       feelsLike: main.feels_like,
       tempMin: main.temp_min,

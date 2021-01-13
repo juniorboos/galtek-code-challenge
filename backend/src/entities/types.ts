@@ -13,6 +13,7 @@ export interface IWeatherData {
   weather: Array<{
     main: string;
     description: string;
+    icon: string;
   }>;
   main: {
     temp: number;
