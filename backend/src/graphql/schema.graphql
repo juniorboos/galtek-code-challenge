@@ -1,0 +1,27 @@
+type Coordinates {
+  longitude: Float!
+  latitude: Float!
+}
+
+type CurrentWeather {
+  status: String!
+  description: String!
+  temp: Float!
+  feelsLike: Float!
+  tempMin: Float!
+  tempMax: Float!
+  pressure: Int!
+  humidity: Int!
+  windSpeed: Float!
+}
+
+type Weather {
+  id: ID!
+  city: String!
+  coordinates: Coordinates!
+  currentWeather: CurrentWeather!
+}
+
+type Query {
+  weathers: [Weather!]!
+}
