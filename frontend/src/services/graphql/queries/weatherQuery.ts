@@ -12,6 +12,7 @@ export const GET_WEATHERS = gql`
       currentWeather {
         status
         description
+        icon
         temp
         feelsLike
         tempMin

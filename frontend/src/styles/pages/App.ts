@@ -16,9 +16,13 @@ export const AppContainer = styled.div`
   );
 
   .switch {
-    position: absolute;
+    position: fixed;
+    height: 3rem;
     right: 20px;
     top: 20px;
     z-index: 5;
+
+    display: flex;
+    align-items: center;
   }
 `;

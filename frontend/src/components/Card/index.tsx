@@ -1,6 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { Container } from "../../styles/components/Card";
+import { Container, MoreInfo } from "../../styles/components/Card";
 import { IWeather } from "../../types/weatherType";
+
+import humiditySVG from "../../assets/humidity.svg";
+import windSVG from "../../assets/wind.svg";
+import thermometerSVG from "../../assets/thermometer.svg";
+import pressureSVG from "../../assets/pressure.svg";
+import highlowSVG from "../../assets/high-low.svg";
+import dots from "../../assets/dots.svg";
 
 interface Props {
   index: number;
@@ -31,19 +38,67 @@ const Card = ({ index, slide, current, handleSlideClick }: Props) => {
     console.log(!open);
   };
 
+  const handleClick = () => {
+    if (current === index) handleOpen();
+    else handleSlideClick(index);
+  };
+
   return (
     <Container
       isFar={isFar}
-      isOpen={open}
       className={classname}
       onClick={() => handleSlideClick(index)}
     >
-      <div className="image_wrapper">{slide.city}</div>
-      <h3>Status: {slide.currentWeather.status}</h3>
-      <h3>Temperature: {slide.currentWeather.temp}</h3>
-      <h3>Max: {slide.currentWeather.tempMin}</h3>
-      <h3>Min: {slide.currentWeather.tempMax}</h3>
-      <button onClick={() => handleOpen()}>Teste</button>
+      <h2 onClick={() => handleOpen()}>{slide.city}</h2>
+      <div className="weather-wrapper">
+        <div className="temperature">
+          <h3>{Math.floor(slide.currentWeather.temp)}</h3>
+          <h4>ºC</h4>
+        </div>
+        <div className="status">
+          <img src={slide.currentWeather.icon} alt="" />
+          <h4>{slide.currentWeather.status}</h4>
+        </div>
+      </div>
+      <div className="aditional">
+        <div className="info-small">
+          <img className="icon" src={humiditySVG} alt="" />
+          <p>{slide.currentWeather.humidity}% humidity</p>
+        </div>
+        <div className="info-small">
+          <img className="icon" src={windSVG} alt="" />
+          <p>{slide.currentWeather.windSpeed} m/s wind</p>
+        </div>
+      </div>
+      <MoreInfo isOpen={open}>
+        <li>
+          <div className="label">
+            <img className="icon" src={thermometerSVG} alt="" />
+            <p>Feels Like</p>
+          </div>
+          <p>{slide.currentWeather.feelsLike} ºC</p>
+        </li>
+        <li>
+          <div className="label">
+            <img className="icon" src={highlowSVG} alt="" />
+            <p>High / Low</p>
+          </div>
+          <p>
+            {slide.currentWeather.tempMax} ºC / {slide.currentWeather.tempMin}{" "}
+            ºC
+          </p>
+        </li>
+        <li>
+          <div className="label">
+            <img className="icon" src={pressureSVG} alt="" />
+            <p>Pressure</p>
+          </div>
+          <p>{slide.currentWeather.pressure} mb</p>
+        </li>
+      </MoreInfo>
+      <button onClick={() => handleClick()}>
+        <img src={dots} alt="" />
+      </button>
     </Container>
   );
 };

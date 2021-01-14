@@ -7,9 +7,12 @@ export const Container = styled.div`
   width: 40vmin;
   display: flex;
   align-items: center;
-  border: 1px solid red;
 
-  @media (max-width: 500px) {
+  @media (max-width: 768px) {
+    width: 50vmin;
+  }
+
+  @media (max-width: 425px) {
     width: 70vmin;
   }
 `;

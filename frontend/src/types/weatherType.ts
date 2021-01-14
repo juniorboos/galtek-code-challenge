@@ -6,6 +6,7 @@ interface ICoordinates {
 interface ICurrentWeather {
   status: string;
   description: string;
+  icon: string;
   temp: number;
   feelsLike: number;
   tempMin: number;

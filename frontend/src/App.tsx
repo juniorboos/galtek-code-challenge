@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { ThemeProvider } from "styled-components";
 import Home from "./components/Home";
-import { AppContainer } from "./styles/App";
+import { AppContainer } from "./styles/pages/App";
 
 import { ApolloProvider } from "react-apollo";
 import apolloClient from "./services/graphql/apollo";

@@ -11,20 +11,26 @@ export const Container = styled.ul<Props>`
   position: absolute;
   align-items: center;
   transition: transform 600ms cubic-bezier(0.25, 1, 0.35, 1);
-
   transform: translateX(-${(props) => props.current * (100 / props.numItems)}%);
-  border: 1px solid green;
-  height: 100vh;
+  /* height: 100vh; */
 `;
 
 export const Controls = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
-  top: calc(100% - 4rem);
+  position: fixed;
+  top: 20px;
   margin: 0 auto;
-  width: 100%;
+  width: 40vmin;
+
+  @media (max-width: 768px) {
+    width: 50vmin;
+  }
+
+  @media (max-width: 425px) {
+    width: 70vmin;
+  }
 `;
 
 export const Control = styled.button`
@@ -40,6 +46,8 @@ export const Control = styled.button`
   cursor: pointer;
   font-family: inherit;
   font-size: inherit;
+
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 
   &:focus {
     border-color: ${(props) => props.theme.colors.primary};
