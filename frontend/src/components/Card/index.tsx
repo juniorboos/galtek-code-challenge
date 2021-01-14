@@ -93,7 +93,7 @@ const Card = ({ index, slide, current, handleSlideClick }: Props) => {
             <img className="icon" src={pressureSVG} alt="" />
             <p>Pressure</p>
           </div>
-          <p>{slide.currentWeather.pressure} mb</p>
+          <p>{slide.currentWeather.pressure} hPa</p>
         </li>
       </MoreInfo>
       <button onClick={() => handleClick()}>
