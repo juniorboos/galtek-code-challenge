@@ -16,3 +16,7 @@ export const Container = styled.div`
     width: 70vmin;
   }
 `;
+
+export const Error = styled.h1`
+  color: ${(props) => props.theme.colors.text};
+`;

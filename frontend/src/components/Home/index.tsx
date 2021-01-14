@@ -1,5 +1,5 @@
 import React from "react";
-import { Container } from "../../styles/components/Home";
+import { Container, Error } from "../../styles/components/Home";
 import Slider from "../Slider";
 import { useQuery } from "react-apollo";
 import { GET_WEATHERS } from "../../services/graphql/queries/weatherQuery";
@@ -11,7 +11,7 @@ const Home = () => {
   });
 
   if (loading) return <Loading />;
-  if (error) return <h1>Error! {error.message}</h1>;
+  if (error) return <Error> Error! {error.message}</Error>;
 
   console.log(data);
 
