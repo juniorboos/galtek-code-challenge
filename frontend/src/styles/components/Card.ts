@@ -157,14 +157,13 @@ export const Container = styled.li<{ isFar: boolean }>`
 
   &.previous,
   &.next {
+    cursor: pointer;
     &:hover {
       ${(props) => (props.isFar ? `opacity: 0.3;` : `opacity: 0.8;`)}
     }
   }
 
   &.previous {
-    cursor: w-resize;
-
     &:hover {
       ${(props) =>
         props.isFar
@@ -174,8 +173,6 @@ export const Container = styled.li<{ isFar: boolean }>`
   }
 
   &.next {
-    cursor: e-resize;
-
     &:hover {
       ${(props) =>
         props.isFar
