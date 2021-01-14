@@ -7,10 +7,10 @@ type CurrentWeather {
   status: String!
   description: String!
   icon: String!
-  temp: Float!
-  feelsLike: Float!
-  tempMin: Float!
-  tempMax: Float!
+  temp: Int!
+  feelsLike: Int!
+  tempMin: Int!
+  tempMax: Int!
   pressure: Int!
   humidity: Int!
   windSpeed: Float!

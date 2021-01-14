@@ -52,7 +52,7 @@ const Card = ({ index, slide, current, handleSlideClick }: Props) => {
       <h2 onClick={() => handleOpen()}>{slide.city}</h2>
       <div className="weather-wrapper">
         <div className="temperature">
-          <h3>{Math.floor(slide.currentWeather.temp)}</h3>
+          <h3>{slide.currentWeather.temp}</h3>
           <h4>ºC</h4>
         </div>
         <div className="status">
