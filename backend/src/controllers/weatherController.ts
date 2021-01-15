@@ -4,9 +4,8 @@ import { IWeatherData } from "../entities/types";
 
 function weatherReducer(data: IWeatherData) {
   const { id, name, coord, weather, main, wind } = data;
-
   return {
-    id: id,
+    id: id.toString(),
     city: name,
     coordinates: {
       longitude: coord.lon,
