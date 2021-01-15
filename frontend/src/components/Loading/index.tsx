@@ -4,7 +4,7 @@ import { Container } from "../../styles/components/Loading";
 const Loading = () => {
   return (
     <Container>
-      <div className="gooey">
+      <div className="gooey" data-testid="loading">
         <span className="dot"></span>
         <div className="dots">
           <span></span>

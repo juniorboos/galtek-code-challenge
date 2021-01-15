@@ -17,7 +17,7 @@ interface ICurrentWeather {
 }
 
 export interface IWeather {
-  id: number;
+  id: string;
   city: string;
   coordinates: ICoordinates;
   currentWeather: ICurrentWeather;

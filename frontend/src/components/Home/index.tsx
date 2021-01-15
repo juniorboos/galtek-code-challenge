@@ -11,12 +11,10 @@ const Home = () => {
   });
 
   if (loading) return <Loading />;
-  if (error) return <Error> Error! {error.message}</Error>;
-
-  console.log(data);
+  if (error) return <Error>Error! {error.message}</Error>;
 
   return (
-    <Container>
+    <Container data-testid="home">
       <Slider items={data.weathers} />
     </Container>
   );
