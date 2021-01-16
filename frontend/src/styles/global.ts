@@ -14,4 +14,9 @@ export default createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+
+  iframe
+{
+    display: none;
+}
 `;
