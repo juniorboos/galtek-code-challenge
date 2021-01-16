@@ -3,7 +3,7 @@ import { HttpLink } from "apollo-link-http";
 import { InMemoryCache, NormalizedCacheObject } from "apollo-cache-inmemory";
 
 const httpLink = new HttpLink({
-  uri: "http://192.168.1.7:4000/",
+  uri: "http://localhost:4000/",
 });
 
 const client: ApolloClient<NormalizedCacheObject> = new ApolloClient({
