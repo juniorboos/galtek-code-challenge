@@ -50,7 +50,7 @@ const Card = ({ index, slide, current, handleSlideClick }: Props) => {
       onClick={() => handleSlideClick(index)}
       data-testid="weather-card"
     >
-      <h2 onClick={() => handleOpen()}>{slide.city}</h2>
+      <h2>{slide.city}</h2>
       <div className="weather-wrapper">
         <div className="temperature">
           <h3>{slide.currentWeather.temp}</h3>

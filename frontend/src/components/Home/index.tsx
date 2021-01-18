@@ -18,7 +18,7 @@ const Home = () => {
 
   // checks if its refetching.
   if (networkStatus === NetworkStatus.refetch)
-    return <Error>'Refetching!'</Error>;
+    return <Error>Refetching!</Error>;
 
   if (loading) return <Loading />;
 
